@@ -23,9 +23,9 @@ import static com.googlecode.jsonrpc4j.ErrorResolver.JsonError.PARSE_ERROR;
 public enum DefaultHttpStatusCodeProvider implements HttpStatusCodeProvider {
 	INSTANCE;
 	
-	final Map<Integer, ErrorResolver.JsonError> httpStatus2JsonError = new HashMap<Integer, ErrorResolver.JsonError>();
+	final Map<Integer, ErrorResolver.JsonError> httpStatus2JsonError = new HashMap<>();
 	
-	private DefaultHttpStatusCodeProvider() {
+	DefaultHttpStatusCodeProvider() {
 		httpStatus2JsonError.put(HttpURLConnection.HTTP_INTERNAL_ERROR, INTERNAL_ERROR);
 		httpStatus2JsonError.put(HttpURLConnection.HTTP_NOT_FOUND, METHOD_NOT_FOUND);
 		httpStatus2JsonError.put(HttpURLConnection.HTTP_BAD_REQUEST, PARSE_ERROR);

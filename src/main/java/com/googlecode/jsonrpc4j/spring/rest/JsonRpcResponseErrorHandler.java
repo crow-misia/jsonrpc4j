@@ -30,7 +30,7 @@ public class JsonRpcResponseErrorHandler
 	/**
 	 * for supported codes see {@link com.googlecode.jsonrpc4j.DefaultHttpStatusCodeProvider}
 	 */
-	private final Set<Integer> JSON_RPC_STATUES = new HashSet<Integer>();
+	private final Set<Integer> JSON_RPC_STATUES = new HashSet<>();
 	
 	
 	private JsonRpcResponseErrorHandler() {

@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
-import org.springframework.web.client.ResponseErrorHandler;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class JsonRpcRestClient extends JsonRpcClient implements IJsonRpcClient {
