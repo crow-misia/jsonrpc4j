@@ -94,7 +94,7 @@ public class AutoJsonRpcServiceImplExporter implements BeanFactoryPostProcessor 
 						throw new RuntimeException("the path [" + path + "] for the bean [" + beanName + "] is not valid");
 					}
 					
-					logger.info(String.format("exporting bean [%s] ---> [%s]", beanName, path));
+					logger.info("exporting bean [{}] ---> [{}]", beanName, path);
 					if (isNotDuplicateService(serviceBeanNames, beanName, path))
 						serviceBeanNames.put(path, beanName);
 				}

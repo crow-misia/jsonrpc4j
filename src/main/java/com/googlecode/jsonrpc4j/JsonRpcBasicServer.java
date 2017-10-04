@@ -501,7 +501,7 @@ public class JsonRpcBasicServer {
                 JsonNode jsonNode = params.get(i);
                 Class<?> type = getJavaTypeForJsonType(jsonNode.getNodeType());
                 Object object = mapper.convertValue(jsonNode, type);
-                logger.debug(String.format("[%s] param: %s -> %s", method.getName(), i, type.getName()));
+                logger.debug("{} param: {} -> {}", method.getName(), i, type.getName());
                 convertedParams[i] = object;
             }
 

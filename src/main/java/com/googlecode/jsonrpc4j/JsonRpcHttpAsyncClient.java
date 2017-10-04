@@ -439,7 +439,7 @@ public class JsonRpcHttpAsyncClient {
 		IOReactorConfig.Builder config = IOReactorConfig.custom();
 		config = config.setSoTimeout(Integer.getInteger("com.googlecode.jsonrpc4j.async.socket.timeout", 30000));
 		config = config.setConnectTimeout(Integer.getInteger("com.googlecode.jsonrpc4j.async.connect.timeout", 30000));
-		config = config.setTcpNoDelay(Boolean.valueOf(System.getProperty("com.googlecode.jsonrpc4j.async.tcp.nodelay", "true")));
+		config = config.setTcpNoDelay(Boolean.parseBoolean(System.getProperty("com.googlecode.jsonrpc4j.async.tcp.nodelay", "true")));
 		config = config.setIoThreadCount(Integer.getInteger("com.googlecode.jsonrpc4j.async.reactor.threads", 1));
 		return config;
 	}

@@ -141,7 +141,7 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 		ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
 		try {
 			String acceptEncoding = request.getHeader(ACCEPT_ENCODING);
-			result = handleRequest0(input, output, acceptEncoding, response, byteOutput);
+			result = handleRequest0(input, acceptEncoding, response, byteOutput);
 
 			contentLength = byteOutput.size();
 		} catch (Throwable t) {
@@ -171,7 +171,7 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 		return input;
 	}
 	
-	private int handleRequest0(InputStream input, OutputStream output, String contentEncoding, HttpServletResponse response, ByteArrayOutputStream byteOutput) throws IOException {
+	private int handleRequest0(InputStream input, String contentEncoding, HttpServletResponse response, ByteArrayOutputStream byteOutput) throws IOException {
 		int result;
 
 		boolean canGzipResponse = contentEncoding != null && GZIP.equalsIgnoreCase(contentEncoding);
