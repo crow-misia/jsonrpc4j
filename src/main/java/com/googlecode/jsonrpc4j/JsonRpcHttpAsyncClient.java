@@ -474,18 +474,22 @@ public class JsonRpcHttpAsyncClient {
 
 		private final Condition condition = lock.newCondition();
 		
+		@Override
 		public boolean cancel(boolean mayInterruptIfRunning) {
 			return false;
 		}
 		
+		@Override
 		public boolean isCancelled() {
 			return false;
 		}
 		
+		@Override
 		public boolean isDone() {
 			return done;
 		}
 		
+		@Override
 		public T get() throws InterruptedException,
 				ExecutionException {
 
@@ -506,6 +510,7 @@ public class JsonRpcHttpAsyncClient {
 			}
 		}
 		
+		@Override
 		public T get(long timeout, TimeUnit unit)
 				throws InterruptedException, ExecutionException,
 				TimeoutException {
@@ -534,6 +539,7 @@ public class JsonRpcHttpAsyncClient {
 
 		}
 		
+		@Override
 		public void onComplete(T result) {
 			lock.lock();
 			try {
@@ -545,6 +551,7 @@ public class JsonRpcHttpAsyncClient {
 			}
 		}
 		
+		@Override
 		public void onError(Throwable t) {
 			lock.lock();
 			try {
@@ -571,6 +578,7 @@ public class JsonRpcHttpAsyncClient {
 			this.callBack = callBack;
 		}
 		
+		@Override
 		public void completed(final HttpResponse response) {
 			try {
 				StatusLine statusLine = response.getStatusLine();
@@ -596,10 +604,12 @@ public class JsonRpcHttpAsyncClient {
 			}
 		}
 		
+		@Override
 		public void failed(final Exception ex) {
 			callBack.onError(ex);
 		}
 		
+		@Override
 		public void cancelled() {
 			callBack.onError(new RuntimeException("HTTP Request was cancelled"));
 		}

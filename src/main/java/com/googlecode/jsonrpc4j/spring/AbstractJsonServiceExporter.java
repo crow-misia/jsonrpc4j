@@ -124,6 +124,7 @@ abstract class AbstractJsonServiceExporter extends RemoteExporter implements Ini
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) {
 		this.applicationContext = applicationContext;
 	}

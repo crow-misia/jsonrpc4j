@@ -29,6 +29,7 @@ public class JsonServiceExporter extends AbstractJsonServiceExporter implements 
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		jsonRpcServer.handle(request, response);
 		response.getOutputStream().flush();

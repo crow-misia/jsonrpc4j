@@ -19,6 +19,7 @@ public enum DefaultErrorResolver implements ErrorResolver {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public JsonError resolveError(Throwable t, Method method, List<JsonNode> arguments) {
 		return new JsonError(ERROR_NOT_HANDLED.code, t.getMessage(), new ErrorData(t.getClass().getName(), t.getMessage()));
 	}

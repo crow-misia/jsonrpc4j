@@ -49,6 +49,7 @@ public class CompositeJsonStreamServiceExporter extends AbstractCompositeJsonSer
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void destroy() throws Exception {
 		streamServer.stop();
 	}

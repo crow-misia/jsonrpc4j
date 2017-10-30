@@ -22,6 +22,7 @@ public class DefaultExceptionResolver implements ExceptionResolver {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Throwable resolveException(ObjectNode response) {
 		ObjectNode errorObject = ObjectNode.class.cast(response.get(JsonRpcBasicServer.ERROR));
 		if (!hasNonNullObjectData(errorObject, JsonRpcBasicServer.DATA))

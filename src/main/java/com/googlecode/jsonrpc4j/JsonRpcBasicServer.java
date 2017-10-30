@@ -1177,10 +1177,12 @@ public class JsonRpcBasicServer {
 		
 		private JsonRpcParam createNewJsonRcpParamType(final Annotation annotation) {
 			return new JsonRpcParam() {
+				@Override
 				public Class<? extends Annotation> annotationType() {
 					return JsonRpcParam.class;
 				}
 				
+				@Override
 				public String value() {
 					try {
 						return (String) WEB_PARAM_NAME_METHOD.invoke(annotation);

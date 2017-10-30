@@ -98,6 +98,7 @@ public class AutoJsonRpcServiceExporter implements BeanFactoryPostProcessor {
 		return jsonRpcPath != null;
 	}
 
+	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
 		DefaultListableBeanFactory defaultListableBeanFactory = (DefaultListableBeanFactory) beanFactory;
 		Map<String, String> servicePathToBeanName = findServiceBeanDefinitions(defaultListableBeanFactory);

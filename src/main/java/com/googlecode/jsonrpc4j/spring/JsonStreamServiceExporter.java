@@ -57,6 +57,7 @@ public class JsonStreamServiceExporter extends AbstractJsonServiceExporter imple
     /**
      * {@inheritDoc}
      */
+    @Override
     public void destroy() throws Exception {
         streamServer.stop();
     }

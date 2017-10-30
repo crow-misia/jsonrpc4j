@@ -44,6 +44,7 @@ public class MultipleInvocationListener implements InvocationListener {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void willInvoke(Method method, List<JsonNode> arguments) {
 		for (InvocationListener invocationListener : invocationListeners) {
 			invocationListener.willInvoke(method, arguments);
@@ -53,6 +54,7 @@ public class MultipleInvocationListener implements InvocationListener {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void didInvoke(Method method, List<JsonNode> arguments, Object result, Throwable t, long duration) {
 		for (InvocationListener invocationListener : invocationListeners) {
 			invocationListener.didInvoke(method, arguments, result, t, duration);

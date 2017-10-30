@@ -113,8 +113,9 @@ abstract class AbstractCompositeJsonServiceExporter implements InitializingBean,
 	}
 
 	/**
-	 * @param applicationContext the applicationContext to set
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) {
 		this.applicationContext = applicationContext;
 	}
