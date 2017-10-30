@@ -190,7 +190,7 @@ public class StreamServerTest {
 		}
 		
 		public int inc() {
-			logger.info("server: inc():", val);
+			logger.info("server: inc():{}", val);
 			return val++;
 		}
 		
