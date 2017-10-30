@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Utilities for reflection.
  */
 public abstract class ReflectionUtil {
+	private static final Object[] EMPTY_ARGUMENTS = new Object[0];
 	
 	private static final Map<String, Set<Method>> methodCache = new ConcurrentHashMap<>();
 	
@@ -206,14 +207,14 @@ public abstract class ReflectionUtil {
 					}
 					return parsed;
 				} else {
-					return arguments != null ? arguments : new Object[]{};
+					return arguments == null ? EMPTY_ARGUMENTS : arguments;
 				}
 			case OBJECT:
 				if (namedParams.size() > 0) {
 					return namedParams;
 				} else {
 					if (arguments == null) {
-                        return new Object[]{};
+                        return EMPTY_ARGUMENTS;
                     }
 					throw new IllegalArgumentException(
 							"OBJECT parameters pass mode is impossible without declaring JsonRpcParam annotations for all parameters on method "
@@ -224,7 +225,7 @@ public abstract class ReflectionUtil {
 				if (namedParams.size() > 0) {
 					return namedParams;
 				} else {
-					return arguments != null ? arguments : new Object[]{};
+					return arguments == null ? EMPTY_ARGUMENTS : arguments;
 				}
 		}
 	}
