@@ -16,6 +16,7 @@ import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -224,7 +225,7 @@ public class JsonRpcHttpClient extends JsonRpcClient implements IJsonRpcClient {
 	private static String readErrorString(final HttpURLConnection connection) {
 		try (InputStream stream = connection.getErrorStream()) {
 			StringBuilder buffer = new StringBuilder();
-			try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"))) {
+			try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
 				for (int ch = reader.read(); ch >= 0; ch = reader.read()) {
 					buffer.append((char) ch);
 				}
