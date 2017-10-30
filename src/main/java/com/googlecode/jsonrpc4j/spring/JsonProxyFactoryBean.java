@@ -54,7 +54,7 @@ public class JsonProxyFactoryBean extends UrlBasedRemoteAccessor implements Meth
 		super.afterPropertiesSet();
 		proxyObject = ProxyFactory.getProxy(getServiceInterface(), this);
 
-		if (jsonRpcHttpClient==null) {
+		if (jsonRpcHttpClient == null) {
 			if (objectMapper == null && applicationContext != null && applicationContext.containsBean("objectMapper")) {
 				objectMapper = (ObjectMapper) applicationContext.getBean("objectMapper");
 			}
@@ -79,7 +79,7 @@ public class JsonProxyFactoryBean extends UrlBasedRemoteAccessor implements Meth
 					jsonRpcHttpClient.setContentType(contentType);
 				}
 				
-				if (exceptionResolver!=null) {
+				if (exceptionResolver != null) {
 					jsonRpcHttpClient.setExceptionResolver(exceptionResolver);
 				}
 			} catch (MalformedURLException mue) {

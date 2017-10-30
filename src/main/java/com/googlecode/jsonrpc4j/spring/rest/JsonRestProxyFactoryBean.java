@@ -56,7 +56,7 @@ class JsonRestProxyFactoryBean<T> extends UrlBasedRemoteAccessor implements Meth
 
 		proxyObject = ProxyFactory.getProxy(getObjectType(), this);
 
-		if (jsonRpcRestClient==null) {
+		if (jsonRpcRestClient == null) {
 			
 			if (objectMapper == null && applicationContext != null && applicationContext.containsBean("objectMapper")) {
 				objectMapper = (ObjectMapper) applicationContext.getBean("objectMapper");
@@ -80,7 +80,7 @@ class JsonRestProxyFactoryBean<T> extends UrlBasedRemoteAccessor implements Meth
 				jsonRpcRestClient.setSslContext(sslContext);
 				jsonRpcRestClient.setHostNameVerifier(hostNameVerifier);
 				
-				if (exceptionResolver!=null) {
+				if (exceptionResolver != null) {
 					jsonRpcRestClient.setExceptionResolver(exceptionResolver);
 				}
 				
