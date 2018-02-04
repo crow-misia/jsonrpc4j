@@ -111,9 +111,9 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	}
 	
 	private InputStream getRequestStream(ResourceRequest request) throws IOException {
-		if (request.getMethod().equals("POST")) {
+		if ("POST".equals(request.getMethod())) {
 			return request.getPortletInputStream();
-		} else if (request.getMethod().equals("GET")) {
+		} else if ("GET".equals(request.getMethod())) {
 			return createInputStream(request);
 		} else {
 			throw new IOException("Invalid request method, only POST and GET is supported");
@@ -161,9 +161,9 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	
 	private InputStream getRequestStream(HttpServletRequest request) throws IOException {
 		InputStream input;
-		if (request.getMethod().equals("POST")) {
+		if ("POST".equals(request.getMethod())) {
 			input = createInputStream(request.getInputStream(), request.getHeader(CONTENT_ENCODING));
-		} else if (request.getMethod().equals("GET")) {
+		} else if ("GET".equals(request.getMethod())) {
 			input = createInputStream(request);
 		} else {
 			throw new IOException("Invalid request method, only POST and GET is supported");
@@ -190,7 +190,7 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	
 	private static InputStream createInputStream(InputStream inputStream, String contentEncoding) throws IOException {
 		InputStream input;
-		if (contentEncoding != null && GZIP.equalsIgnoreCase(contentEncoding)) {
+		if (GZIP.equalsIgnoreCase(contentEncoding)) {
 			input = new GZIPInputStream(inputStream);
 		} else {
 			input = inputStream;

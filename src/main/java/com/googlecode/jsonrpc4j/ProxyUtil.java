@@ -101,13 +101,13 @@ public abstract class ProxyUtil {
 	
 	private static Object proxyObjectMethods(Method method, Object proxyObject, Object[] args) {
 		String name = method.getName();
-		if (name.equals("toString")) {
+		if ("toString".equals(name)) {
 			return proxyObject.getClass().getName() + "@" + System.identityHashCode(proxyObject);
 		}
-		if (name.equals("hashCode")) {
+		if ("hashCode".equals(name)) {
 			return System.identityHashCode(proxyObject);
 		}
-		if (name.equals("equals")) {
+		if ("equals".equals(name)) {
 			return proxyObject == args[0];
 		}
 		throw new RuntimeException(method.getName() + " is not a member of java.lang.Object");

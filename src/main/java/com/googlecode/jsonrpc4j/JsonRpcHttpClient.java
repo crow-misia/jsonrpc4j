@@ -215,7 +215,7 @@ public class JsonRpcHttpClient extends JsonRpcClient implements IJsonRpcClient {
 	
 	private boolean useGzip(final HttpURLConnection connection) {
 		String contentEncoding = connection.getHeaderField(CONTENT_ENCODING);
-		return contentEncoding != null && contentEncoding.equalsIgnoreCase(GZIP);
+		return GZIP.equalsIgnoreCase(contentEncoding);
 	}
 	
 	private InputStream getStream(final InputStream inputStream, final boolean useGzip) throws IOException {
